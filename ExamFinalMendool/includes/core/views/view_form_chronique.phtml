@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+	<!---------------chargement includes de mes partials + creation formulaire pour l'admin pour ajouter/sup/modif des chroniques---->
+<head>
+	<?php require "includes/partials/head.phtml"; ?>
+</head>
+<body>
+
+	<header>
+		<?php require_once "includes/partials/navbar.phtml"; ?>
+	</header>
+
+	<main>
+		<form action="" method="post">
+			<section class="container_form_sketch_chronique">
+				<div class="container_ajout">
+					<div>
+						<label for="title_chronique"></label>
+						<input class="titre_video" required type="text" placeholder="Titre de la chronique" name="title_chronique" id="title_chronique" value="<?= $uneChronique->getTitre()?>">
+					</div>
+					<div>
+						<label for="url_chronique"></label>
+						<input class="input_video" required type="url" id="url_chronique" name="url_chronique" placeholder="Entrez une URL" value="<?= $uneChronique->getLienVideo()?>"> 
+					</div>
+				</div>
+				<button class="btn_valider" type="submit">Enregistrer</button>
+			</section>
+		</form>
+	</main>
+
+	<footer>
+		<?php require_once "includes/partials/footer.phtml"; ?>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+	<!---------------chargement includes de mes partials + creation des boutons pour ajout/supr/modif des skecthes et tournees--->
+<head>
+	<?php require "includes/partials/head.phtml"; ?>
+</head>
+<body>
+	<header>
+		<?php require_once "includes/partials/navbar.phtml"; ?>
+	</header>
+	<?php
+		$status = $_GET["status"] ?? '';
+         if ($status == "inscription_success"){
+         ?>
+        <div id="confirmation_inscription">
+           <p>Vous êtes connectés!</p>
+           <p>Vous pouvez desormais commenter nos vidéos en cliquant sur leur titre :)</p>
+        </div>
+        <?php } ?>
+
+	<main>
+		<?php require_once "includes/partials/main.phtml"; ?>
+		
+	</main>
+		
+	<footer>
+		<?php require_once "includes/partials/footer.phtml"; ?>
+	</footer>
+	
+</body>
+</html>

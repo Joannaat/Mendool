@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+	<!---------------chargement includes de mes partials + creation de mon visuel page mes tournees---->
+<head>
+	<?php require "includes/partials/head.phtml"; ?>
+</head>
+<body>
+	<header>
+		<?php require_once "includes/partials/navbar.phtml"; ?>
+	</header>
+
+	<!-----------------------ICI J affiche ma page tournees avec ma liste de tournees------------------------------->
+	<div class="container">
+		<main id="liste_tournee">
+			<h2>Mes Tournées</h2>
+			<?php
+				$admin = $_SESSION['admin']?? false;
+				if($admin == true){
+					print('<div class="button_ajout">');
+						print ('<a href="index.php?page=tournee&action=add" title="ajout tournee">Ajouter une tournée</a>');
+					print('</div>');
+				}
+			?>	
+			<!------------liste de toutes mes tournees que je recupere en faisant un foreach---------->
+			<?php
+				$admin = $_SESSION['admin']?? false;
+				foreach ( $lesTournees as $uneTournee){
+					//Iici je recupere ma tournee
+					print('<div class="spectacle_line">');
+							print('<div class="spectacle_info">');
+								print('<p class="align_p">'.$uneTournee->getNomTournee().'</p>');
+								print('<p class="align_p">'.$uneTournee->getLocalisation().'</p>');
+								print('<p class="align_p">'.$uneTournee->getDate().'</p>');
+								print('<p class="align_p">'.$uneTournee->getHeure().'</p>');
+							print('</div>');
+						if($admin == false){
+							print('<div>');
+								print('<a href="https://www.fnacspectacles.com/" class="button_reserver" target="_blank" title="reserver">Reserver</a>');
+							print('</div>');
+							}
+						if($admin == true){
+							print('<div class="align_td">');
+								print('<td>'.$uneTournee->getDuree().'min'.'</td>');
+								print('<br>');
+								print('<td>'.$uneTournee->getNombrepersonnes().'pers'.'</td>');
+							print('</div>');
+							//ici je recupere le lien de ma tournee
+							print('<div class="buttons">');
+								print('<td><a class="button_modif_sup" href="index.php?page=tournee&action=edit&id='.$uneTournee->getId().'" title="modifier">Modifier</a></td>');
+								print('<td><a class="button_modif_sup" href="index.php?page=tournee&action=delete&id='.$uneTournee->getId().'" title="supprimer">Supprimer</a></td>');
+							print('</div>');
+							}
+					print('</div>');
+				}
+			?>
+		</main>
+	</div>
+	<footer>
+		<?php require_once "includes/partials/footer.phtml"; ?>
+	</footer>
+</body>
+</html>

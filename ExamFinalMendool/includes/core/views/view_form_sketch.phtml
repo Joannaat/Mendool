@@ -1,0 +1,38 @@
+<?php
+	require_once "includes/core/models/daoSketch.php";
+?>
+<!DOCTYPE html>
+<html lang="fr">
+		<!---------------chargement includes de mes partials + creation formulaire pour l'admin pour ajouter/sup/modif des sketches---->
+
+<head>
+	<?php require "includes/partials/head.phtml"; ?>
+</head>
+<body>
+	<header>
+		<?php require_once "includes/partials/navbar.phtml"; ?>
+	</header>
+
+	<main>
+		<form action="" method="post">
+			<section class="container_form_sketch_chronique">
+				<div class="container_ajout">
+					<div>
+						<label for="title"></label>
+						<input class="titre_video" type="text" placeholder="Titre du sketch" required name="title"  value="<?= $unSketch->getTitre()?>"><!--ici je recupre ma valeur que l'admin a entrer dans le champ titre,ensuite cette valeur je la met ds ma bdd
+		-->			</div>
+					<div>
+						<label for="url"></label>
+						<input class="input_video" type="url" name="url" required placeholder="Entrez une URL " value="<?= $unSketch->getLienVideo()?>">
+					</div>
+				</div>
+				<button class="btn_valider" type="submit">Enregistrer</button>
+			</section>
+		</form>
+	</main>
+
+	<footer>
+		<?php require_once "includes/partials/footer.phtml"; ?>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+
+    
+<nav class="navbar">
+    <div class="image">
+        <img class="logo" src="public/medias/mendool_portrait_robot.jpg" titre ="Logo Mendool" alt="logo_mendool">
+    </div>
+    <div class="nav-links">
+        <ul class="links">
+            <li><a href="index.php?page=index#main_part" title="Accueil">Accueil</a></li>
+            <li><a href="index.php?page=tournee&action=list#liste_tournee" title="Mes Tournées">Mes Tournées</a></li>
+            <li><a href="index.php?page=sketch&action=list#liste_sketchs" title="Mes Skecthes">Mes Skecthes</a></li>
+            <li><a href="index.php?page=chronique&action=list#liste_chroniques" title="Mes Chroniques">Mes Chroniques</a></li>
+            <div class="pseudo">
+              <?php
+                if(isset($_SESSION['login'])){
+              ?>
+              <a href="#"><?=$_SESSION['login']?></a>
+              <?php
+                }
+              ?>
+            </div>
+            <?php
+                if (!isset($_SESSION['login'])){
+            ?>
+            <li><a href="index.php?page=user&action=login#login" title="Connexion"><i class="fa-solid fa-house-user"></i></a></li>
+            <?php
+                }else{
+             ?>
+            <li><a href="index.php?page=user&action=logout" title="Deconnexion"><i class="fa-solid fa-house-circle-xmark"></i></a></li>
+            <?php
+                }
+             ?> 
+        </ul>
+    </div>
+    </div>
+        <i id="burger" class="fa-solid fa-bars"></i>
+    </div>   
+</nav>
+
+<div class="banner">
+    <img src="public/medias/mendool_banner.jpg" alt="Mendool">
+</div>
+
+
+        

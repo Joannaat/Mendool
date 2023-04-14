@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<?php require "includes/partials/head.phtml"; ?>
+</head>
+<body>
+	<header>
+		<?php require_once "includes/partials/navbar.phtml"; ?>
+	</header>
+
+        <form id="inscription_form" action="" method="post">
+            <section class="container_form">
+                <div class="container_ajout">
+                    <div>
+                        <label for="nom"></label>
+                        <input type="text" id="nom" name="nom" placeholder="Nom" required maxlength= 20>
+                    </div>
+                    <div>
+                        <label for="prenom"></label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Prénom" required maxlength= 20>
+                    </div>
+
+                    <div>
+                        <label for="email"></label>
+                        <input type="email" id="emailInput" name="email" placeholder="Entrez votre adresse mail" required>
+                    </div>
+                    
+                    <div>
+                        <label for="emailConfirm"></label>
+                        <input type="email" id="emailConfirmation" name="emailConfirm" placeholder="Confirmation de votre Email" required>
+                    </div>
+
+                    <div>
+                        <label for="login"></label>
+                        <input type="text" id="login" name="login" placeholder="Login" required>
+                    </div>
+
+                    <div>
+                        <label for="password"></label>
+                        <input type="password" id="password" name="password" placeholder="Mot de passe" minlength="8" required>
+                    </div>
+                    
+                    <button class="connexion-btn connexion-btn-bis" type="submit">S'inscrire</button>
+                    <?php
+                        print $message??'';//print un message si ya une erreur
+                    ?>
+                </div>
+            </section>
+        </form>
+
+	<footer>
+		<?php require_once "includes/partials/footer.phtml"; ?>
+	</footer>
+
+</body>
+</html>

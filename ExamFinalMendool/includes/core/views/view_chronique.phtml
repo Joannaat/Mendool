@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+	<!---------------chargement includes de mes partials + creation de mon visuel page chronique vue unique---->
+<head>
+	<?php require "includes/partials/head.phtml"; ?>
+</head>
+<body>
+	<header>
+		<?php require_once "includes/partials/navbar.phtml"; ?>
+	</header>
+
+	<main>
+		<?php
+			$admin = $_SESSION['admin']?? false;
+				print ('<div class="one_card_view">');
+				print('<h3>'.$uneChronique->getTitre().'</h3>');
+					print('<div class="video">');
+						print('<iframe src="'.$uneChronique->getLienVideo().'" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+					print('</div>');
+					if(!isset($_SESSION['login'])){//si le login n est pas ds la session il faut s inscrire
+						print('<a class="connexion-btn" href="index.php?page=user&action=inscription#inscription_form" title="Inscrivez_vous">Inscrivez-vous pour écrire un commentaire</a>');
+					}else{
+					print('<div class="commentaire_container">');
+						print('<form method="post" action="index.php?page=chronique&action=addCommentaire&id='.$uneChronique->getId().'">');
+						print('<textarea class="commentaire_depose" name="commentaire" placeholder="Donnez-nous votre avis :)"></textarea>');
+						print ('<button class="btn_valider">Envoyer</button>');
+						print('</form>');
+					print('</div>');
+					}
+				print('</div>');
+
+				print $message??'';//si $messag est renseigné sinn j 'ecris rien
+		
+			//ici affciher les com un par un for each pr affciher un ocm par un com
+			foreach ( $lesCommentaires as $unCommentaire){
+				print ('<div class="commentaire_container_publie">');
+					print('<p>'.nl2br($unCommentaire->getCommentaire()).'</p>');
+					print('<span>'.$unCommentaire->getDate()->format('d/m/Y H:i:s').'</span>');
+				print('</div>');
+			}
+		?>
+	</main>
+
+	<footer>
+		<?php require_once "includes/partials/footer.phtml"; ?>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+		<!---------------chargement includes de mes partials + creation formulaire pour l'admin pour ajouter/sup/modif des tournees---->
+
+<head>
+	<?php require "includes/partials/head.phtml"; ?>
+</head>
+<body>
+	<header>
+		<?php require_once "includes/partials/navbar.phtml"; ?>
+	</header>
+	
+	<main>
+		<form action="" method="post">
+			<div class="container_form">
+				<div class="container_ajout">
+					<div>
+						<label for="nom_tournee">Nom de la tournée</label>
+						<input type="text" required name="nom_tournee" value="<?= $uneTournee->getNomTournee()?>">
+					</div>
+					<div>
+						<label for="localisation">Lieu </label>
+						<input type="text" required name="localisation" value="<?= $uneTournee->getLocalisation()?>">
+					</div>	
+					<div>
+						<label for="date">Date </label>
+						<input type="date" required name="date" value="<?= $uneTournee->getFullDate()->format("Y-m-d")?>">
+					</div>
+					<div>
+						<label for="heure">Heure </label>
+						<input type="time" required name="heure" value="<?= $uneTournee->getHeure()?>">
+					</div>
+					<div>
+						<label for="duree">Durée </label>
+						<input type="text" required name="duree" value="<?= $uneTournee->getDuree()?>">
+					</div>	
+					<div>
+						<label for="personnes">Nombre de places disponible</label>
+						<input type="number" required name="personnes" value="<?= $uneTournee->getNombrepersonnes()?>">
+					</div>
+				</div>
+				<input class="btn_valider" type="submit" value="Enregistrer">
+			</div>
+		</form>
+
+	</main>
+		
+	<footer>
+		<?php require_once "includes/partials/footer.phtml"; ?>
+	</footer>	
+</body>
+</html>

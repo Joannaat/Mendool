@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+	<!---------------chargement includes de mes partials + creation de mon visuel page mes Sketches---->
+<head>
+	<?php require "includes/partials/head.phtml"; ?>
+</head>
+<body>
+	<header>
+		<?php require_once "includes/partials/navbar.phtml"; ?>
+	</header>
+	<!-----------------------ICI J affiche ma page sketch avec ma liste de sketch------------------------------->
+	<div class="container">
+		<main id="liste_sketchs">
+			<h2>Mes skecthes</h2>
+			<!--si la variable $session admin vaut vraie alors j affiche le bouton sinon je l affiche pas-->
+			<?php
+				$admin = $_SESSION['admin']?? false;
+				if($admin == true){
+					print('<div class="button_ajout">');
+						print ('<a href="index.php?page=sketch&action=add" title="ajout sketch">Ajouter un sketch</a>');
+					print('</div>');
+				}
+			?>
+			<!------------liste de tous mes sketches que je recupere en faisant un foreach---------->
+			<div class="container_card">
+			<?php
+				foreach ( $lesSketches as $unSketch){
+					print ('<div class="card">');
+						print('<h3><a href="index.php?page=sketch&action=view&id='.$unSketch->getId().'" title="titre sketch">'.$unSketch->getTitre().'</a></h3>');
+						print('<div class="video">');
+							print('<iframe src="'.$unSketch->getLienVideo().'" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+						print('</div>');
+	
+						/*si la variable $session admin vaux vraie alors j affiche le bouton sinon je l affiche pas*/
+
+						if($admin == true){
+							print('<div class="button_modif_sup">');								
+								print('<a href="index.php?page=sketch&action=edit&id='.$unSketch->getId().'" title="modifier">Modifier</a>');
+							print('</div>');
+							print('<div class="button_modif_sup">');
+								print('<a href="index.php?page=sketch&action=delete&id='.$unSketch->getId().'" title="supprimer">Supprimer</a>');
+							print('</div>');	
+							}
+					print('</div>');
+				}
+			?>
+			</div>
+		</main>
+	</div>
+
+	<footer>
+		<?php require_once "includes/partials/footer.phtml"; ?>
+	</footer>
+</body>
+</html>

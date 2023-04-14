@@ -1,0 +1,811 @@
+*, html {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(142 136 129 / 9%);
+    overflow-x: hidden;
+}
+/************************************Variable couleur et police****************************/
+:root {
+    --color1:#77c59a;
+    --colorh2:#3e845b;
+    --policeNavbar: 'Covered By Your Grace', cursive;
+    --policeTitreH2: 'Rock Salt', cursive;
+    --policeTexte:'Kalam', cursive;
+    --policebtn:'Indie Flower', cursive;
+    --policeCom:'Manrope', sans-serif;
+}
+/**************************************import des polices*******************************/
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Covered+By+Your+Grace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap');
+
+
+/**********************modif navbar***********************/
+.image{
+    width: 60px;
+}
+
+.logo{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.navbar{
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    height: 100px;
+}
+
+.navbar a{
+    color: green;
+}
+
+.links{
+    display: flex;
+}
+
+.links li{
+    margin: 0 25px;
+}
+
+#burger{
+    z-index: 1;
+    font-size: 2.7rem;
+    color: #74dd78;
+}
+
+.banner img{
+    width: 100%;
+    height: 100%;
+    border-radius:10px;
+    box-shadow: 2px 5px 12px 12px #00000040;
+}
+
+.image_artist{
+    z-index: -1;
+    position: relative;
+}
+
+/************************css div confirmation inscription qui se declenche lorsqu'on valide 'linscription sur page d'accueil*****************/
+#confirmation_inscription{
+    margin: 4rem;
+    text-align: center;
+    color: var(--colorh2);
+    font-family: var(--policeCom);
+    display: block;
+    background-color: #cbdcd2;
+    padding: 2rem;
+}
+
+ /******************modif des tournees page tournee************/
+.spectacle_line{
+    background-color: #77c59ab8;
+    border-radius: 15px;
+    margin: 2rem 0;
+    /*padding-bottom: 10px;*/
+    border-radius: 15px;
+    display: flex;
+    /*justify-content: space-around;
+    align-items: center;*/
+    flex-direction: column;
+    padding: 5px 10px;
+}
+
+.spectacle_line p{
+    font-family: var(--policebtn);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    line-height: 2.8rem;
+    letter-spacing: 0.3rem;
+}
+
+.spectacle_line a{
+    display: flex;
+    justify-content: center;
+}
+
+.spectacle_info{
+    display: flex;
+    flex-direction: column;
+}
+
+.spectacle_line > div:last-child{
+    display: flex;
+    flex-direction: column;
+}
+
+/************modif view d'un sketch et d'une chronique********************/
+.one_card_view{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn_supr{
+    border-radius: 15px;
+    padding: 0.4rem 0.4rem;
+    color: var(--colorh2);
+    background-color: #fffffe;
+    box-shadow: #00000038 2px 2px 2px;
+    margin: 20px auto;
+}
+
+
+/******************************modif du form tournee********************/
+.container_form input{
+    margin: 0.5rem 0; 
+}
+
+.align_td{
+        text-align: center;
+        font-family: var(--policebtn);
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: white;
+}
+
+/**********************modif css de la partie commentaire des sketchs et chroniques***********************/
+.commentaire_container{
+    margin: 4rem 0;
+    text-align: center;
+    color: var(--colorh2);
+    font-family: var(--policeTexte);
+    display: flex;
+    flex-direction: column;
+}
+
+.commentaire_container textarea{
+    width: 315px;
+    height: 249px;
+    max-width: 243px;
+    max-height: 175px;
+    resize: none;
+    border: #979292;
+    border-radius: 10px;
+    box-shadow: #2b312e17 4px 4px 14px 0px;
+    padding: 1rem 0.5rem;
+}
+
+
+/**********************   MEDIA QUERY affichage tablette   *************/
+@media screen and (max-width: 900px){
+    .nav-links{
+        position: absolute;
+        background-color: rgba(61, 59, 59, 0.718);
+        backdrop-filter: blur(8px);
+        width: 100%;
+        height: 100vh;
+        top:0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -100%;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .nav-links.mobile_menu{
+        margin-left: 0;
+    }
+    .navbar a{
+        color:white;
+        font-family: var(--policeNavbar);
+        font-size: 1.8rem;
+    }
+
+    .logo{
+       width: 100%;
+    }
+
+    .links{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .links li{
+        margin: 25px 0;
+        font-size: 1.2rem;
+    }
+    
+    .commentaire_container form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    h1{
+    text-align: center;
+    letter-spacing: 0.4em;
+    font-size: 1.2em;
+    color: var(--color1);
+    font-family: var(--policeTitreH2);
+    margin: 3rem 0;
+    }
+    
+    h1::after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background: var(--color1);
+    transition: .5s ease-out;
+    }
+
+    h1:hover::after{
+    width: 100%;
+    }
+}
+
+/****************************  MEDIA QUERY PC    **********************/
+@media only screen and (min-width: 900px){
+    .navbar a{
+        color:var(--colorh2);
+        font-family: var(--policeNavbar);
+        font-size: 1.8rem;
+    }
+    
+    .pseudo{
+        display:flex;
+        align-items:center;
+    }
+    
+    .nav-links, .links, .pseudo a{
+        font-family: var(--policecom);
+        color: #8ec49d;
+    }
+    
+    #burger{
+        display: none;
+    }
+    
+    .banner img{
+        width: 100%;
+        height: 80%;
+        border-radius:10px;
+        box-shadow: 2px 5px 12px 12px #00000040;
+    }
+    
+    h1{
+        margin: 4rem 0;
+        text-align: center;
+        color: var(--color1);
+        font-family: var(--policeTitreH2);
+        font-size: 2rem;
+    }
+    
+    .artist_bio{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+    }
+    
+    .image_artist{
+        height: 80vh;
+    }
+    
+    .one_card_view{
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        width: 70%;
+        margin-top: 5rem;
+        background-color: #a9caca1a;
+        box-shadow: #0000000f -3px 3px 12px 0px;
+    }
+    
+    .container_card{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5rem;
+    }
+    
+    .card{
+        min-width: 100%;
+    }
+    
+    #inscription_form{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container_form{
+        margin: 5rem auto;
+        width:50%;
+    }
+    
+    .spectacle_line{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+    }
+    .spectacle_info{
+        display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 80%;
+    }
+}
+/******************* FIN MEDIA QUERY PC ***********************************/
+
+    /**********modif dans main de ma page tournee toujours dans media query************/
+   /* .spectacle_line{
+        display: flex;
+        /*justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        background-color: #77c59ab8;
+        border-radius: 15px;
+        margin: 1.5rem 0;
+        padding: 5px 10px;
+    }*/
+    
+    /*div.spectacle_info{
+        flex-direction: row;
+        gap: 1rem;
+        width:100%;
+    }
+    
+    .spectacle_line > div:last-child {
+        flex-direction: row;
+    }*/
+
+    .align_td{
+        font-family: var(--policebtn);
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: white;
+        margin: 0 100px;
+    }
+    
+    .commentaire_container{
+    width: 75%;
+    height: 30%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .commentaire_container form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .container_ajout {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    width: 50%;
+    }
+}
+
+/********************************MODIF MAIN**************************/
+
+h1{
+    text-align: center;
+    letter-spacing: 0.4em;
+    font-size: 2em;
+    color: var(--color1);
+    font-family: var(--policeTitreH2);
+    margin: 3rem 0;
+}
+h1::after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background: var(--color1);
+    transition: .5s ease-out;
+}
+
+h1:hover::after{
+    width: 100%;
+}
+
+h2{
+    font-family: var(--policeTitreH2);
+    font-size: 2rem;
+    margin: 5rem 0;
+    text-align: center;
+    color: var(--colorh2);
+    text-shadow: 2px -1px 10px #9c8d8dcf;
+}
+
+h3{
+    margin: 2rem 0;
+    font-family: var(--policeTexte);
+    color:var(--colorh2);
+    font-size: 1.5em;
+}
+
+h3 a{
+    color:var(--colorh2);
+}
+
+h3::after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background: var(--colorh2);
+    transition: .5s ease-out;
+}
+
+h3:hover::after{
+    width: 100%;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+#spectacle_title{
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-size: 2em;
+    margin: 0.5em 0;
+    color: var(--color1);
+}
+
+.comic_mendool{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px 50px;
+    filter: grayscale(100%);
+    margin-bottom: 3rem; 
+    z-index: 1200;
+}
+
+.bio p{
+    line-height: 2rem;
+    text-indent: 2em;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.artist_bio{
+    margin: 3rem 0;
+    overflow-y: hidden;
+}
+
+.card{
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.commentaire_depose{
+    margin: 20px 0;
+    width:100%;
+}
+
+.video{
+    padding: 1rem 1rem;
+}
+
+.video iframe{
+    max-width: 100%;
+    border-radius: 15px;
+    height: 401px;
+    width: 712px;
+}
+
+.commentaire_container{
+    width: 75%;
+    height: 30%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentaire_container_publie{
+    box-shadow: 2px 0px 19px #3e623d1c;
+    width: 60%;
+    margin: 2rem auto;
+    padding: 1rem 1rem;
+    border-radius: 20px; 
+    color:var(--colorh2);
+    font-family:var(--policeCom);
+    display: flex;
+    flex-direction: column;
+}
+
+/**********modif lien inscrivez vous sur la view sketch et chronique**********/
+.lien_commentaire{
+    color:var(--colorh2);
+    margin: 3rem 0;
+    border: 2px solid var(--color1);
+    border-radius: 20px;
+    padding: 0.8rem;
+} 
+
+/*******************modif form de connexion***********/
+.connexion_form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 60%;
+    margin: 80px auto;
+}
+
+.connexion_login{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.lien_inscription{
+    text-align: center;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 45px;
+    background: #29ab698c;
+    font-family: var(--policeTexte);
+    box-shadow: 2px 2px 12px 2px #253e2f40;
+    font-family:var(--policeTexte);
+    cursor: pointer;
+
+}
+
+/***************  modif label de mon ajout tournee******************/
+.container_form .container_ajout label{
+    font-family:var(--policeTexte);
+}
+
+/***************************MODIF DES INPUT et des boutons**********************/
+.button_ajout{
+  background: #3a3f35cf;
+  padding: 0.4rem;
+  color: var(--colorh2);
+  border-radius: 10px;
+  border: none;
+  display: block;
+  box-shadow: #8d9791 2px 2px 2px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.button_ajout a, .button_modif_sup a{
+    color:white;
+    font-family:var(--policeTexte);
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_modif_sup{
+    background: #3a3f35cf;
+    padding: 0.4rem;
+    font-family:var(--policeTexte);
+    font-size: 1rem;
+    color: white;
+    border-radius: 10px;
+    margin: 1.15rem 0;
+    border: none; 
+    display: block;
+    width:fit-content;
+    box-shadow: #7c8780 2px 2px 2px;
+}
+
+.connexion-btn{
+    cursor: pointer;
+    background: #29ab698c;
+    padding: 0.4rem;
+    font-family: var(--policeTexte);
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 20px;
+    margin: 1.8rem 0;
+    border: none;
+    font-weight: bold;
+    box-shadow: 2px 2px 12px 2px #253e2f40;
+}
+
+.connexion_form .connexion input{
+    margin-top: 1rem;
+    border: none; 
+    background: transparent;
+    border: 0;
+    border-bottom: 2px #49cd80 solid;
+    padding: 0.5rem 0;
+    font-size: 0.7rem;
+    color: #585858;
+    font-size: 1rem;
+    font-family:var(--policeCom);
+    font-weight:bold;
+    text-align:center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+input::placeholder{
+    color: #979292;
+    font-size: 1rem;
+    text-align: center;
+    font-family: var(--policeTexte);
+}
+
+.button_reserver{
+   background: #ecedebce;
+    padding: 0.7rem;
+    font-family: var(--policebtn);
+    font-size: 1rem;
+    color: var(--colorh2);
+    border-radius: 10px;
+    border: none;
+    width:fit-content;
+    margin: auto;
+}
+
+.button_reserver a{
+    color:var(--colorh2);
+    font-family:var(--policeTexte);
+}
+
+.modifier_supprimer{
+    margin-top: 5%;
+}
+
+/******************************modif form skecth partie admin*********************/
+.container_form{
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+}
+form .container_form_sketch_chronique{
+    margin: 2rem auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_form_sketch_chronique input{
+    border: 1px solid var(--colorh2);
+    border-radius: 10px;
+}
+
+.container_ajout{
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    width: 70%;
+}
+
+.container_ajout input {
+  margin-bottom: 2rem;
+  width: 100%;
+  margin-top: 1rem;
+  border: none;
+  background: #bbe0cb30;
+  padding: 0.5rem 0;
+  color: #585858;
+  font-size: 1rem;
+  font-family: var(--policeCom);
+  font-weight: bold;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 6px 5px 5px -2px #00000026;
+}
+
+.connexion-btn-bis{
+    width: 50%;
+    margin: 0 25%;
+}
+
+.btn_valider{
+    background: var(--color1);
+    padding: 0.7rem;
+    font-family: var(--policebtn);
+    font-size: 1rem;
+    color: white;
+    border-radius: 10px;
+    margin: 1.15rem 0;
+    border: none;
+    cursor: pointer;
+}
+
+/***********************FOOTER********************/
+.social_networks{
+    padding: 0;
+    margin-top: 3%;
+    padding: 3% 20%;
+    background-color:var(--color1);
+}
+
+.social_networks ul li .fab{
+    font-size: 50px;
+    line-height: 60px;
+    transition: .3s;
+    color: rgb(75, 72, 75);
+}
+
+.social_networks ul li .fab:hover{
+    color: #fff;
+}
+
+.social_networks ul li a {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    transition: .6s;
+    box-shadow: 0 5px 4px rgba(0,0,0,.5);
+}
+
+.social_networks ul li a:hover{
+    transform: translate(0, -10%);
+}
+
+.social_networks ul li:first-child a:hover{
+    background-color:#419ae5;
+}
+
+.social_networks ul li:nth-child(2) a:hover{
+    background-color:#dc4159;
+}
+
+.social_networks ul li:nth-child(3) a:hover{
+    background-color:black;
+}
+
+.social_networks ul li:last-child a:hover{
+    background-color: #68bbdd
+}
+
+.icons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cgv_copyright{
+    margin: 1em auto;
+    color: #3e845b;
+    display: flex;
+    justify-content: center;
+    font-family: var(--policeTexte);
+    font-size: 1em; 
+}
+
+.cgv_copyright a{
+    color: var(--colorh2);
+    margin-right: 5rem;
+}
